@@ -173,6 +173,23 @@ namespace mlx90621 {
         return mlx.ta(ptat, configreg)
     }
 
+    //% blockId=t0
+    //% block="IR data"
+    //% icon=""
+    export function t0(): number[] {
+        const ambietnt = ta()
+        const pixels = readIrData()
+        const compenstation = readCompensationPixel()
+
+        const out = [];
+        for (let i = 0; i < pixels.length; i++) {
+            out.push(-279)
+        }
+
+        mlx.t0allDies(pixels, compenstation, ambietnt, configreg, out)
+        return out;
+    }
+
     // basic.pause(1000);
 
     // const config = readInitData();
